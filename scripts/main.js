@@ -3,8 +3,9 @@ var selectElem = document.getElementById('command-selector');
 //affichage de la sélection
 var pElem = document.getElementById('command');
 
-alert("hello")
+
 selectElem.addEventListener('change', function() {
+    alert('I am John in an annoying alert!')
     //numéro de la sélection
     var index = selectElem.selectedIndex;
     //valeur de la sélection
