@@ -3,6 +3,7 @@ var selectElem = document.getElementById('command-selector');
 //affichage de la sélection
 var pElem = document.getElementById('command');
 
+alert("hello")
 selectElem.addEventListener('change', function() {
     //numéro de la sélection
     var index = selectElem.selectedIndex;
