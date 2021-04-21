@@ -6,6 +6,7 @@
 </head>
 
 <body>
+
     <div class="titlecommand">
         <h1 class="title1">Mcommands</h1>
         <p id="command" class="selected" >Selected command: advancement</p>
@@ -15,7 +16,7 @@
         <label class="command-select">Please select a command :</label>
         <br>
         <!-- sélecteur de la commande-->
-        <select id="command-selector">
+        <select id="command-selector" class="command-selector">
             <optgroup label="a">
                 <option value="advancement">advancement</option>
             </optgroup>
@@ -132,5 +133,26 @@
             </optgroup>
           </select>
     </div>
-    <script src="scripts/main.js"></script>
+
+    <br>
+
+    <div id="advancement">
+        <label>Mode : </label>
+        <select id="advancement-mode">
+            <option value="revoke">revoke</option>
+            <option value="grant">grant</option>
+        </select>
+        <br>
+    </div>
+
+    <div id="output">
+        <div id=outputheader">Click here to move</div>
+        <input placeholder="command output" type="text" id="output1" class="output">
+        <button onclick="advancementoutput()" class="outputbutton" id="outputbutton">Click me to get the command</button>
+    </div>
+ 
+    <script src="scripts/selector.js"></script>
+    <script src="scripts/command.js"></script>
+    <script src="scripts/output/output.js"></script>
+    <script src="scripts/output/outputdrag.js"></script>
 </body>
