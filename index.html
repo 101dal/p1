@@ -18,9 +18,9 @@
         <!-- sélecteur de la commande-->
         <select id="command-selector" class="command-selector">
             <optgroup label="a">
-                <option value="advancement">advancement</option>
+                <option value="advancement" selected>advancement</option>
             </optgroup>
-            
+
             <optgroup label="b">
                 <option value="ban">ban</option>
                 <option value="ban-ip">ban-ip</option>
@@ -137,22 +137,75 @@
     <br>
 
     <div id="advancement">
-        <label>Mode : </label>
-        <select id="advancement-mode">
-            <option value="revoke">revoke</option>
+        <label id="margin">Mode : </label>
+        <select id="advancement-mode" onchange="advancementoutput()">
+            <option value="revoke" selected>revoke</option>
             <option value="grant">grant</option>
         </select>
         <br>
+
+        <label>Player :</label>
+        <input id= "player" value="" onchange="advancementoutput()">
+        <script>document.getElementById('player').value = '@a'</script>
+        <select>
+            <option value="all players" onclick="document.getElementById('player').value = '@a'; advancementoutput()">all players</option>
+            <option value="nearest player" onclick="document.getElementById('player').value = '@p'; advancementoutput()">nearest player</option>
+            <option value="random players" onclick="document.getElementById('player').value = '@r'; advancementoutput()">random players</option>
+            <option value="random players" onclick="document.getElementById('player').value = '@e'; advancementoutput()">all entity</option>
+            <option value="random players" onclick="document.getElementById('player').value = '@s'; advancementoutput()">entity that is executing the command</option>
+            <option value="specific player" onclick="document.getElementById('player').value = 'undefined'; advancementoutput()">specific player</option>
+        </select>
+        <br>
+
+        <label>Literal :</label>
+        <select id="literal"onchange="advancementoutput()">
+            <option value="until" selected>until</option>
+            <option value="from">from</option>
+            <option value="through">through</option>
+            <option value="only">only</option>
+        </select>
+        <script>advancementoutput()</script>
+        <br>
+
+        <label>Advancement :</label>
+        <select id="advancementselect" onclick="advancementoutput()">
+            <optgroup label="Minecraft :">
+                <option value="minecraft:story/root" title="Description : The heart and story of the game">none - Minecraft</option>
+                <option value="minecraft:story/mine_stone" title="Description : Mine stone with your new pickaxe">Minecraft - Stone Age</option>
+                <option value="minecraft:story/upgrade_tools" title="Description : Construct a better pickaxe">Stone Age - Getting an Upgrade</option>
+                <option value="minecraft:story/smelt_iron" title="Description : Smelt an iron ingot">Getting an Upgrade - Acquire Hardware</option>
+                <option value="minecraft:story/obtain_armor" title="Description : Protect yourself with a piece of iron armor">Acquire Hardware - Suit Up</option>
+                <option value="minecraft:story/lava_bucket" title="Description : Fill a bucket with lava">Acquire Hardware - Hot Stuff</option>
+                <option value="minecraft:story/iron_tools" title="Description : Upgrade your pickaxe">Acquire Hardware - Isn't It Iron Pick</option>
+                <option value="minecraft:story/deflect_arrow" title="Description : Block a projectile using your shield.">Suit Up - Not Today, Thank You</option>
+                <option value="minecraft:story/form_obsidian" title="Description : Obtain a block of obsidian">Hot Stuff - Ice Bucket Challenge</option>
+                <option value="minecraft:story/mine_diamond" title="Description : Acquire diamonds">Isn't It Iron Pick - Diamonds!</option>
+                <option value="minecraft:story/enter_the_nether" title="Description : Build, light and enter a Nether Portal">Ice Bucket Challenge - We Need to Go Deeper</option>
+                <option value="minecraft:story/shiny_gear" title="Description : Diamond armor saves lives">Diamonds! - Cover Me With Diamonds</option>
+                <option value="minecraft:story/enchant_item" title="Description : Enchant an item at an Enchantment Table">Diamonds! - Enchanter</option>
+                <option value="minecraft:story/cure_zombie_villager" title="Description : Weaken and then cure a Zombie Villager">We Need to Go Deeper - Zombie Doctor</option>
+                <option value="minecraft:story/follow_ender_eye" title="Description : Follow an Ender Eye">We Need to Go Deeper - Eye Spy</option>
+                <option value="minecraft:story/enter_the_end" title="Description : Enter the End Portal">Eye Spy - The End?</option>
+            </optgroup>
+            <optgroup>
+                d
+            </optgroup>
+        </select>
     </div>
+
 
     <div id="output">
         <div id=outputheader">Click here to move</div>
-        <input placeholder="command output" type="text" id="output1" class="output">
-        <button onclick="advancementoutput()" class="outputbutton" id="outputbutton">Click me to get the command</button>
+        <input placeholder="Commands output" type="text" id="output1" class="output1">
+        <button onclick="advancementoutput()" class="outputbutton" id="outputbutton">Click me to copy the command</button>
+        <script>advancementoutput()</script>
+        <script>
+            document.getElementById('output1').value = '';
+        </script>
     </div>
- 
+
     <script src="./scripts/command.js"></script>
-    <script src="./scripts/output/output.js"></script>
     <script src="./scripts/output/outputdrag.js"></script>
     <script src="./scripts/selector.js"></script>
+    <script src="./scripts/output/output.js"></script>
 </body>
